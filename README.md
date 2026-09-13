@@ -13,7 +13,7 @@
 [![Stack](https://img.shields.io/badge/Next.js_16-React_19-cyan.svg)](#-tech-stack)
 [![Self-Hosted](https://img.shields.io/badge/self_hosted-✓-green.svg)](#-install-in-one-command)
 [![Free Forever](https://img.shields.io/badge/free-forever-violet.svg)](#-how-much-you-save)
-[![Star us](https://img.shields.io/github/stars/IamRamgarhia/SEO-Tool?style=social)](https://github.com/IamRamgarhia/SEO-Tool)
+[![Star us](https://img.shields.io/github/stars/mohisnrazaac/All-In-One-Free-SEO-Tool?style=social)](https://github.com/mohisnrazaac/All-In-One-Free-SEO-Tool)
 
 > **Use cases:** free seo tool · all in one seo · ahrefs alternative · semrush alternative · moz alternative · open source seo · self-hosted seo · rank tracker · keyword research · technical seo · local seo · AI search optimization (GEO) · LLM citation tracking · backlink checker · content brief generator · white-label client reports · SEO automation for freelancers and small agencies
 
@@ -77,17 +77,17 @@ No Git. No Node knowledge. No setup wizard. The installer auto-detects Docker / 
 
 ### 🪟 Windows (PowerShell)
 ```powershell
-iwr -useb https://raw.githubusercontent.com/IamRamgarhia/SEO-Tool/main/install.ps1 | iex
+iwr -useb https://raw.githubusercontent.com/mohisnrazaac/All-In-One-Free-SEO-Tool/main/install.ps1 | iex
 ```
 
 ### 🐧🍎 macOS / Linux
 ```bash
-curl -fsSL https://raw.githubusercontent.com/IamRamgarhia/SEO-Tool/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/mohisnrazaac/All-In-One-Free-SEO-Tool/main/install.sh | bash
 ```
 
 ### 🐳 Docker manually
 ```bash
-git clone https://github.com/IamRamgarhia/SEO-Tool.git && cd seo
+git clone https://github.com/mohisnrazaac/All-In-One-Free-SEO-Tool.git && cd All-In-One-Free-SEO-Tool
 docker compose up -d
 ```
 
@@ -600,7 +600,7 @@ This entire SEO platform (99 dedicated tools, AI daily agent, headless browser p
 
 Solo-built. No VC. No growth team. Just one developer trying to make pro-grade SEO tooling permanently free for everyone.
 
-**🌐** [dicecodes.com](https://dicecodes.com) · **📧** [Contact@dicecodes.com](mailto:Contact@dicecodes.com) · **🐙** [GitHub](https://github.com/IamRamgarhia/SEO-Tool)
+**🌐** [dicecodes.com](https://dicecodes.com) · **📧** [Contact@dicecodes.com](mailto:Contact@dicecodes.com) · **🐙** [GitHub](https://github.com/mohisnrazaac/All-In-One-Free-SEO-Tool)
 
 ---
 

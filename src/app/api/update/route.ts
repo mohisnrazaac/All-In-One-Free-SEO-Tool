@@ -25,7 +25,7 @@ export const dynamic = "force-dynamic";
 // Required: spawns git + pnpm + reads package.json. Edge can't.
 export const runtime = "nodejs";
 
-const REPO = "IamRamgarhia/SEO-Tool";
+const REPO = "mohisnrazaac/All-In-One-Free-SEO-Tool";
 const BRANCH = "main";
 
 async function getLocalSha(): Promise<string | null> {
@@ -50,20 +50,8 @@ async function getLocalSha(): Promise<string | null> {
 }
 
 async function getRemoteSha(): Promise<string | null> {
-  try {
-    const res = await fetch(
-      `https://api.github.com/repos/${REPO}/commits/${BRANCH}`,
-      {
-        headers: { accept: "application/vnd.github+json" },
-        cache: "no-store",
-      },
-    );
-    if (!res.ok) return null;
-    const data = (await res.json()) as { sha?: string };
-    return data.sha ?? null;
-  } catch {
-    return null;
-  }
+  // Remote version checking disabled — git updates are managed manually via CLI.
+  return null;
 }
 
 export async function GET(req: Request) {

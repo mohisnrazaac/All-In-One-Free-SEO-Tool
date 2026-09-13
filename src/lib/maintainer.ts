@@ -23,7 +23,7 @@ export const MAINTAINER = {
    * Public GitHub URL. Used for "Source", "Report a bug", "Star us"
    * style links. Empty string disables the GitHub link in the UI.
    */
-  github: process.env.MAINTAINER_GITHUB ?? "https://github.com/IamRamgarhia/SEO-Tool",
+  github: process.env.MAINTAINER_GITHUB ?? "https://github.com/mohisnrazaac/All-In-One-Free-SEO-Tool",
   /**
    * UPI handle for INR tips. The UI shows both raw and a deep link
    * (upi://pay?pa=...&pn=...&cu=INR) so any UPI app — GPay, PhonePe,

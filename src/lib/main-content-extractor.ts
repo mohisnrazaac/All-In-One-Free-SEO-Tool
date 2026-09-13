@@ -14,7 +14,7 @@
  */
 
 const USER_AGENT =
-  "Mozilla/5.0 (compatible; SEO-Tool-Extractor/1.0; +https://github.com/IamRamgarhia/All-In-One-Free-SEO-Tool)";
+  "Mozilla/5.0 (compatible; SEO-Tool-Extractor/1.0; +https://github.com/mohisnrazaac/All-In-One-Free-SEO-Tool)";
 
 export type ExtractedContent = {
   ok: boolean;

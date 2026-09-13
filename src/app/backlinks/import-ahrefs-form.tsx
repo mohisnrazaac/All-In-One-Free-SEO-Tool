@@ -19,7 +19,9 @@ export function ImportAhrefsForm({
   clients: { id: number; name: string }[];
 }) {
   const [, startTransition] = useTransition();
-  const [clientId, setClientId] = useState<number | "">("");
+  const [clientId, setClientId] = useState<number | "">(
+    clients.length === 1 ? clients[0].id : "",
+  );
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState<AhrefsImportResult | null>(null);
 

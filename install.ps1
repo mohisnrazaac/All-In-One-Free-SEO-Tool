@@ -1,16 +1,21 @@
-# One-line installer for Windows. Run via:
-#   iwr -useb https://raw.githubusercontent.com/IamRamgarhia/SEO-Tool/main/install.ps1 | iex
+# One-line installer for Windows. Open PowerShell and run:
+#   iwr -useb https://raw.githubusercontent.com/mohisnrazaac/All-In-One-Free-SEO-Tool/main/install.ps1 | iex
 #
 # What it does:
-#   1. Downloads the repo as a ZIP (no git required)
+#   1. Downloads the latest code as a ZIP (no git required)
 #   2. Auto-detects a free local port (default 3000)
-#   3. If Docker Desktop is running -> uses Docker (recommended, handles everything)
-#   4. Otherwise -> falls back to native Node install
+#   3. Uses Docker if present (recommended — handles everything)
+#   4. Falls back to native Node install otherwise; offers to install
+#      Node LTS via winget if it's missing
 #   5. Waits for /api/v1/health to confirm the app is actually up
 #   6. Opens the browser to http://localhost:<PORT>
 #   7. Drops SEO-Tool-Welcome.txt on the user's Desktop
 #
-# Idempotent. Safe to re-run for upgrades.
+# Idempotent. Safe to re-run for upgrades — your data.db is preserved.
+
+# Requires PowerShell 5.1+ (ships in Windows 10+).
+# If you get an execution policy error, run this first:
+#   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 # IMPORTANT: don't use "Stop" globally - native tools (git, docker, npm) write
 # normal status output to stderr and PowerShell strict-mode treats it as an
@@ -19,8 +24,8 @@ $ErrorActionPreference = "Continue"
 $ProgressPreference   = "SilentlyContinue"  # speeds up Invoke-WebRequest 5-10x
 
 # ---- config ----------------------------------------------------------------
-$repoOwner   = "IamRamgarhia"
-$repoName    = "SEO-Tool"
+$repoOwner   = "mohisnrazaac"
+$repoName    = "All-In-One-Free-SEO-Tool"
 $branch      = if ($env:SEO_BRANCH) { $env:SEO_BRANCH } else { "main" }
 $zipUrl      = "https://codeload.github.com/$repoOwner/$repoName/zip/refs/heads/$branch"
 $dir         = if ($env:SEO_INSTALL_DIR) { $env:SEO_INSTALL_DIR } else { Join-Path $HOME "seo" }
@@ -66,7 +71,7 @@ function Save-LogAndExit([bool]$failed) {
         Write-Host ""
         Write-Host "  To get help, email this log to: Contact@dicecodes.com"
         Write-Host "  Or open an issue with the log attached:"
-        Write-Host "    https://github.com/IamRamgarhia/SEO-Tool/issues"
+        Write-Host "    https://github.com/mohisnrazaac/All-In-One-Free-SEO-Tool/issues"
     } else {
         Write-Host "============================================================" -ForegroundColor Green
         Write-Host "  INSTALL FINISHED" -ForegroundColor Green
@@ -262,7 +267,7 @@ if (Test-PortInUse $port) {
             "Could not find a free port in the ephemeral range after 200 probes.",
             "Set SEO_PORT to a known-free port and re-run, e.g.:",
             '  $env:SEO_PORT = "7777"',
-            "  iwr -useb https://raw.githubusercontent.com/IamRamgarhia/SEO-Tool/main/install.ps1 | iex"
+            "  iwr -useb https://raw.githubusercontent.com/mohisnrazaac/All-In-One-Free-SEO-Tool/main/install.ps1 | iex"
         )
     }
 }
@@ -958,7 +963,7 @@ The only outbound network calls are:
    - SERP scraping via headless browser (only when you check rankings)
 
 ----------------------- HELP -------------------------
-Repo + issues:    https://github.com/IamRamgarhia/SEO-Tool
+Repo + issues:    https://github.com/mohisnrazaac/All-In-One-Free-SEO-Tool
 Troubleshooting:  $dir\TROUBLESHOOTING.md
 Hosting guides:   $dir\docs\HOSTING.md
 README:           $dir\README.md
@@ -968,7 +973,7 @@ Email support:    Contact@dicecodes.com
 This tool is free and self-hosted. If it saves you the cost of
 an Ahrefs or Semrush subscription:
    - Star the repo (huge impact, zero cost):
-     https://github.com/IamRamgarhia/SEO-Tool
+     https://github.com/mohisnrazaac/All-In-One-Free-SEO-Tool
    - UPI (India): princeramgarhiaa-1@okaxis
      (Open the app -> click the Support button for QR + presets)
    - PayPal (international):

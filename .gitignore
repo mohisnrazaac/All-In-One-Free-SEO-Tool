@@ -67,6 +67,9 @@ data.db-*.backup*
 /public/uploads/
 /screenshots/
 /exports/
+disavow.txt
+*.csv
+package-lock.json
 
 # OAuth refresh tokens / API-key encryption key — leakage = account compromise
 .seo-encryption-key

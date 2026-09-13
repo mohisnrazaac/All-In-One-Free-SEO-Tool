@@ -3,10 +3,10 @@
   "version": "0.2.0",
   "description": "All-in-one free SEO tool you'll ever need — open-source, self-hosted alternative to Ahrefs, Semrush, Moz, SE Ranking. Site audits, rank tracking, keyword research, AI visibility (ChatGPT / Perplexity / Gemini citations), content briefs, backlink analysis, local SEO, white-label client reports, automations. Works with free AI keys (Gemini, Groq) — no paid APIs required.",
   "license": "MIT",
-  "homepage": "https://github.com/IamRamgarhia/SEO-Tool",
+  "homepage": "https://github.com/mohisnrazaac/All-In-One-Free-SEO-Tool",
   "repository": {
     "type": "git",
-    "url": "https://github.com/IamRamgarhia/SEO-Tool.git"
+    "url": "https://github.com/mohisnrazaac/All-In-One-Free-SEO-Tool.git"
   },
   "author": {
     "name": "DiceCodes",
@@ -90,9 +90,9 @@
     "dev": "next dev",
     "dev:watch": "node scripts/migrate-watch.cjs",
     "prebuild": "node scripts/migrate.cjs",
-    "build": "next build",
-    "start": "next start",
-    "start:daily": "node scripts/migrate.cjs && next start",
+    "build": "next build && cp -R .next/static .next/standalone/.next/ && cp -R public .next/standalone/",
+    "start": "node .next/standalone/server.js",
+    "start:daily": "node scripts/migrate.cjs && node .next/standalone/server.js",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

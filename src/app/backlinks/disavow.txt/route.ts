@@ -7,7 +7,8 @@ export const dynamic = "force-dynamic";
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
-  const clientIdParam = url.searchParams.get("client");
+  const clientIdParam =
+    url.searchParams.get("client") ?? url.searchParams.get("clientId");
   const clientId = clientIdParam ? Number(clientIdParam) : null;
 
   const where = clientId

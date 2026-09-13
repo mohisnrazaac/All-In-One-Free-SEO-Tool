@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Common issues and how to fix them. If your problem isn't here, open an [issue](https://github.com/IamRamgarhia/SEO-Tool/issues) — chances are someone else hit the same thing.
+Common issues and how to fix them. If your problem isn't here, open an [issue](https://github.com/mohisnrazaac/All-In-One-Free-SEO-Tool/issues) — chances are someone else hit the same thing.
 
 ## 📑 Table of contents
 
@@ -58,10 +58,10 @@ The installer auto-detects this and tries 3001-3010, then 8080/8081/4000/5000. T
 
 ```bash
 # macOS / Linux
-SEO_PORT=4000 curl -fsSL https://raw.githubusercontent.com/IamRamgarhia/SEO-Tool/main/install.sh | bash
+SEO_PORT=4000 curl -fsSL https://raw.githubusercontent.com/mohisnrazaac/All-In-One-Free-SEO-Tool/main/install.sh | bash
 
 # Windows
-$env:SEO_PORT='4000'; iwr -useb https://raw.githubusercontent.com/IamRamgarhia/SEO-Tool/main/install.ps1 | iex
+$env:SEO_PORT='4000'; iwr -useb https://raw.githubusercontent.com/mohisnrazaac/All-In-One-Free-SEO-Tool/main/install.ps1 | iex
 ```
 
 ### "Node version too old"
@@ -459,7 +459,7 @@ You installed via ZIP (no git history). To enable Git updates:
 ```bash
 cd ~/seo
 git init
-git remote add origin https://github.com/IamRamgarhia/SEO-Tool.git
+git remote add origin https://github.com/mohisnrazaac/All-In-One-Free-SEO-Tool.git
 git fetch
 git reset --hard origin/main  # WARNING: only if you haven't modified files locally
 ```
@@ -504,7 +504,7 @@ Get-Content $HOME\seo\dev-server.log -Wait -Tail 100
 
 ## How to file a useful bug report
 
-When opening an issue at <https://github.com/IamRamgarhia/SEO-Tool/issues>, include:
+When opening an issue at <https://github.com/mohisnrazaac/All-In-One-Free-SEO-Tool/issues>, include:
 
 1. **What you tried** — the exact command or click sequence
 2. **What you expected**

@@ -37,10 +37,7 @@ export type UnreadCounts = {
   total: number;
 };
 
-// In-memory cache for the GitHub SHA comparison. We don't want to hit the
-// GitHub API on every page render — checking once per hour is plenty.
-const UPDATE_CHECK_TTL_MS = 60 * 60 * 1000;
-let updateCache: { available: boolean; checkedAt: number } | null = null;
+
 
 async function getLocalSha(): Promise<string | null> {
   try {
@@ -70,61 +67,16 @@ async function getLocalSha(): Promise<string | null> {
 }
 
 async function getRemoteSha(): Promise<string | null> {
-  try {
-    const res = await fetch(
-      "https://api.github.com/repos/IamRamgarhia/SEO-Tool/commits/main",
-      {
-        headers: { accept: "application/vnd.github+json" },
-        cache: "no-store",
-        signal: AbortSignal.timeout(4_000),
-      },
-    );
-    if (!res.ok) return null;
-    const data = (await res.json()) as { sha?: string };
-    return data.sha ?? null;
-  } catch {
-    return null;
-  }
+  // Remote version checking disabled — git updates are managed manually via CLI.
+  return null;
 }
 
 /**
  * Returns whether a newer commit exists on GitHub vs the local checkout.
- * Result is cached in-memory for one hour to keep the sidebar render cheap
- * and avoid hammering the GitHub API. Network or git failures resolve to
- * `false` (no false-positive badges).
+ * Disabled — versioning is managed manually via git CLI.
  */
 async function getUpdateAvailable(): Promise<boolean> {
-  // Skip the check entirely inside Docker — users update by rebuilding the
-  // container, not by clicking the in-app button.
-  if (process.env.RUNNING_IN_DOCKER === "1") return false;
-
-  const now = Date.now();
-  if (updateCache && now - updateCache.checkedAt < UPDATE_CHECK_TTL_MS) {
-    return updateCache.available;
-  }
-
-  const [local, remote] = await Promise.all([getLocalSha(), getRemoteSha()]);
-  const available =
-    local !== null && remote !== null && local !== remote;
-
-  updateCache = { available, checkedAt: now };
-
-  // Also surface this in the notification bell. logActivity dedupes by
-  // (kind, message) within a 24h window, so this is safe to call on
-  // every refresh — the same SHA will only show up once per day.
-  if (available && remote) {
-    const { logActivity } = await import("./activity");
-    void logActivity({
-      kind: "system.update_available",
-      message: `New version on GitHub (${remote.slice(0, 7)}). Click to update.`,
-      level: "info",
-      entityType: "update",
-      dedupe: true,
-      dedupeWindowMinutes: 60 * 24,
-    }).catch(() => undefined);
-  }
-
-  return available;
+  return false;
 }
 
 export async function getUnreadCounts(): Promise<UnreadCounts> {

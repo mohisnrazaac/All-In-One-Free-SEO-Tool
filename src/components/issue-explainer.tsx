@@ -59,7 +59,7 @@ export function IssueExplainer({ issueType, url, defaultOpen = false }: Props) {
       <p className="mt-1 text-xs text-muted-foreground">
         We haven&apos;t written the fix guide for this check yet.{" "}
         <a
-          href="https://github.com/IamRamgarhia/All-In-One-Free-SEO-Tool/issues/new"
+          href="https://github.com/mohisnrazaac/All-In-One-Free-SEO-Tool/issues/new"
           target="_blank"
           rel="noopener noreferrer"
           className="underline underline-offset-2 hover:text-foreground"

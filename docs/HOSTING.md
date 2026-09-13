@@ -16,8 +16,8 @@ Recommended for 50-1000 users. ~$28/mo for a CCX23 (4 vCPU dedicated,
    smaller scale). Add SSH key.
 3. SSH in: `ssh root@your-server-ip`
 4. ```bash
-   git clone https://github.com/IamRamgarhia/SEO-Tool.git
-   cd seo
+   git clone https://github.com/mohisnrazaac/All-In-One-Free-SEO-Tool.git
+   cd All-In-One-Free-SEO-Tool
    docker compose up -d
    ```
 5. Point your domain's A record at the server IP.
